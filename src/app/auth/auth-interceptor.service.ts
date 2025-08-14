@@ -23,6 +23,7 @@ export class AuthInterceptorService implements HttpInterceptor {
       }),
       exhaustMap(user => {
         if (!user) {
+          console.log(req);
           return next.handle(req);
         }
         const modifiedReq = req.clone({
